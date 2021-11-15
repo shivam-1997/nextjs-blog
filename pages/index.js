@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+//import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
         <div>
           Made with ❤️ using {' '}
           <span className={styles.logo}>
-            <Image src="/next-js.svg" alt="Next.js Logo" width={80} height={30} />
+            <img src="/next-js.svg" alt="Next.js Logo" width={80} height={30} />
           </span>
         </div>
         <span>
