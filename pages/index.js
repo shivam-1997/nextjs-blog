@@ -1,8 +1,13 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import useSWR from 'swr';
 //import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data } = useSWR('/api/spotify', fetcher);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,16 +18,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        {console.log(data)}
         <h1 className={styles.title}>
-          Hi, this is <a href="https://shivampoddar.com">Shivam Poddar!</a>
+          {/* TODO: Add a popup when hovered over shivam_poddar, which shows type, birth-date, currently listening */}
+          Hi, this is <a href="https://shivampoddar.com">shivam_poddar</a>!
         </h1>
 
-        <a href="https://shivampoddar.com/run">
+        <Link passHref href="/run">
         <p className={styles.description}>
         🏃‍♂️{' '}
           <code className={styles.code}>Run</code>
         </p>
-        </a>
+        </Link>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
