@@ -37,18 +37,22 @@ export default function Home() {
                 height={0}
               />
             ) : (
-              <span>Not listening, most probably sleeping. 🛌</span>
+              <></>
             )}
           </div>
 
           <div>
-            <marquee>
-              <span >
-                {spotifyData?.isPlaying ? spotifyData.title : <></>}
+            {spotifyData?.isPlaying
+            ?<>
+            {/* <marquee> */}
+              <p >
+                { spotifyData.title }
                 {' '}
-                ({spotifyData?.isPlaying ? spotifyData.artist : <></>})
-              </span>
-            </marquee>
+                ({spotifyData.artist})
+              </p>
+            {/* </marquee> */}
+            </>
+            :<></>}
             <span> Spotify</span>
           </div>
         </a>
