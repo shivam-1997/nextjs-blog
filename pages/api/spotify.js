@@ -13,6 +13,10 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+// to get the currently playing song we first need an access code
+// access token is valid only  for 1hour
+// getAccessToken gets new access token everytime using the refresh token
+// refer here: https://developer.spotify.com/documentation/ios/guides/token-swap-and-refresh/
 const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT,
     {
@@ -30,6 +34,7 @@ const getAccessToken = async () => {
   return response.json();
 };
 
+// below endpoint only returns what is currently being played.
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 // getNowPlaying gets the 'Now Playing' result from Spotify
 export const getNowPlaying = async () => {
