@@ -1,6 +1,7 @@
 {
   "name": "my-website",
   "private": true,
+  "homepage": "http://shivampoddar.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

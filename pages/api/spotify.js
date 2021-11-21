@@ -58,7 +58,7 @@ export default async (_, res) => {
       status: response.statusText,
     });
   }
-
+  console.log(response.statusText);
   const song = await response.json();
   const isPlaying = song.is_playing;
   const title = song.item.name;
