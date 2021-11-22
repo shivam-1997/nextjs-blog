@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import useSWR from 'swr';
 import { useEffect, useState } from 'react';
-//import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Image from 'next/image'
+// import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
@@ -14,7 +14,7 @@ export default function Home() {
   const spotifyData = useSWR('/api/spotify', fetcher, { refreshInterval: spotifyRefreshInterval }).data;
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Home | Shivam Poddar</title>
         <meta name="description" content="Personal blog of Shivam Poddar" />
@@ -32,10 +32,14 @@ export default function Home() {
         >
           <div>
             {spotifyData?.isPlaying ? (
+              // Since, this image is dynamic and has not to be cached,
+              // therfore use normal img tag.
+              // Since, the image is dynamic, therefore it causes problem with next/image
               <img
                 src={spotifyData.albumImageUrl}
                 alt={spotifyData.album}
                 height={0}
+                width={100}
               />
             ) : (
               <></>
@@ -60,38 +64,38 @@ export default function Home() {
 
       </header>
 
-      <main className={styles.main}>
+      <main>
         {console.log(spotifyData)}
-        <h1 className={styles.title}>
+        <h1>
           {/* TODO: Add a popup when hovered over shivam_poddar, which shows type, birth-date, currently listening */}
           Hi, this is <a href="https://shivampoddar.com">shivam_poddar</a>!
         </h1>
 
         <Link passHref href="/run">
-          <p className={styles.description}>
+          <p>
             🏃‍♂️{' '}
-            <code className={styles.code}>Run</code>
+            <code >Run</code>
           </p>
         </Link>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+        <div >
+          <a href="https://nextjs.org/docs">
+            <h2  className="bg-blue-900" >Dummy Post 1 &rarr;</h2>
+            <p>Something something.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://nextjs.org/learn">
+            <h2>Dummy Post2 &rarr;</h2>
+            <p>Something else.</p>
           </a>
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      <footer>
         <div>
           Made with ❤️ using {' '}
-          <span className={styles.logo}>
-            <img src="/next-js.svg" alt="Next.js Logo" width={80} height={30} />
+          <span>
+            <Image src="/next-js.svg" alt="Next.js Logo" width={80} height={30} />
           </span>
         </div>
         <span>
