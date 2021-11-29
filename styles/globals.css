@@ -4,18 +4,34 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  /* background-color: #1f2028; */
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif,
+    IBM Plex Sans, ui-sans-serif, system-ui, BlinkMacSystemFont, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  min-width: 640px;
+  max-width: 80%;
+  margin: auto;
+  height: 100vh;
+  padding:0em;
 }
 
-a {
+h1 {
+  font-weight: bolder;
+  font-size: 3rem;
+}
+body-dark {
+  background-color: #1f2028;
+}
+
+/* a {
   color: inherit;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+} */
+
+.footer-col-w {
+  max-width: 25ch;
 }
